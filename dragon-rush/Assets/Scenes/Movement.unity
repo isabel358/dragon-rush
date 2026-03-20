@@ -226,7 +226,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 10, y: 1, z: 2}
+  m_LocalScale: {x: 50, y: 1, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -288,6 +288,42 @@ MonoBehaviour:
       m_Flags: 0
     m_Flags: 0
   jumpforce: 10
+  Sidejump:
+    m_Name: Sidejump
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 7b4db206-f872-4ed7-b1a0-2a66d86eeb01
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: 44d1f3c2-e5ce-45b5-a702-c16f8eeebbfd
+      m_Path: <Keyboard>/leftArrow
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Sidejump
+      m_Flags: 0
+    m_Flags: 0
+  Sidejumpforce: 10
+  rightjump:
+    m_Name: Rightjump
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 0ff6e189-abe4-4fcc-b511-cb14b298c643
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: 22f433b7-fe43-457f-8ec8-9d428866c0f9
+      m_Path: <Keyboard>/rightArrow
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Rightjump
+      m_Flags: 0
+    m_Flags: 0
+  rightjumpforce: 10
 --- !u!136 &153656059
 CapsuleCollider:
   m_ObjectHideFlags: 0

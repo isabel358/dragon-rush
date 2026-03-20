@@ -5,7 +5,13 @@ public class Movement : MonoBehaviour
     [SerializeField] InputAction jump;
 
     [SerializeField] float jumpforce = 100f;
+
+    [SerializeField] InputAction Sidejump;
+    [SerializeField] float Sidejumpforce = 100f;
     
+    [SerializeField] InputAction rightjump;
+    [SerializeField] float rightjumpforce = 100f;
+
     Rigidbody rb;
 
     private void Awake()
@@ -15,6 +21,8 @@ public class Movement : MonoBehaviour
     private void OnEnable()
     {
         jump.Enable();
+        Sidejump.Enable();
+        rightjump.Enable();
     }
 
     private void FixedUpdate()
@@ -28,6 +36,22 @@ public class Movement : MonoBehaviour
             rb.linearVelocity = playerVelocity;
 
             rb.AddForce(Vector2.up * jumpforce, ForceMode.Impulse);
+        }
+        if (Sidejump.IsPressed())
+        {
+            Vector2 playerVelocity = rb.linearVelocity;
+            playerVelocity.x = 0f;
+            rb.linearVelocity = playerVelocity;
+
+            rb.AddForce(Vector2.left * jumpforce, ForceMode.Impulse);
+        }
+        if(rightjump.IsPressed())
+        {
+            Vector2 playerVelocity = rb.linearVelocity;
+            playerVelocity.x = 0f;
+            rb.linearVelocity = playerVelocity;
+
+            rb.AddForce(Vector2.right * rightjumpforce, ForceMode.Impulse);
         }
     }
 }
