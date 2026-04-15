@@ -3,16 +3,17 @@ using UnityEngine.SceneManagement;
 
 public class CollisionHandler : MonoBehaviour
 {
+    [SerializeField] ParticleSystem successParticles;
     void OnCollisionEnter(Collision other)
     {
         switch(other.gameObject.tag)
         {
             case "Finish":
-                LoadNextLevel();
+                StartSuccessSequence();
                 //Debug.Log("Its Safe");
-                    break;
+                break;
             case "Unfriendly":
-                RestartLevel();
+                StartCrashSequence();
                 //Debug.Log("Its Dangerous");
                 break;
             case "Collectable":
@@ -23,6 +24,22 @@ public class CollisionHandler : MonoBehaviour
                 break;
         }
     }
+
+    void StartSuccessSequence()
+    {
+        //add sound and visual effects 
+        successParticles.Play();
+        GetComponent<Movement>().enabled = false;
+        Invoke("LoadNextLevel", 2f);
+    }
+
+    void StartCrashSequence()
+    {
+        //add sounds and VFX
+        GetComponent<Movement>().enabled = false;
+        Invoke("RestartLevel", 2f);
+    }
+
     void LoadNextLevel()
     {
         int currentScene = SceneManager.GetActiveScene().buildIndex;
@@ -33,7 +50,7 @@ public class CollisionHandler : MonoBehaviour
         }
         SceneManager.LoadScene(nextScene);
     }
-    private static void RestartLevel()
+    private void RestartLevel()
     {
         int currentScene = SceneManager.GetActiveScene().buildIndex;
         SceneManager.LoadScene(currentScene);
