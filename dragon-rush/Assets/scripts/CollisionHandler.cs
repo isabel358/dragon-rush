@@ -3,7 +3,14 @@ using UnityEngine.SceneManagement;
 
 public class CollisionHandler : MonoBehaviour
 {
+    [SerializeField] AudioClip success;
+    [SerializeField] AudioClip failure;
     [SerializeField] ParticleSystem successParticles;
+    [SerializeField] ParticleSystem failureParticles;
+
+    AudioSource AudioSource;
+
+    bool isControllable = true;
     void OnCollisionEnter(Collision other)
     {
         switch(other.gameObject.tag)

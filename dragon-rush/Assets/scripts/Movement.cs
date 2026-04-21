@@ -13,12 +13,17 @@ public class Movement : MonoBehaviour
     [SerializeField] LayerMask groundLayer;
     [SerializeField] bool isGrounded;
 
+    [SerializeField] AudioClip jumpSFX;
+    [SerializeField] ParticleSystem jumpparticles;
+
     Rigidbody rb;
     Vector2 playerVelocity;
+    AudioSource AudioSource;
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
+        AudioSource = GetComponent<AudioSource>();
     }
     private void OnEnable()
     {
@@ -39,7 +44,13 @@ public class Movement : MonoBehaviour
     {
         if (jump.IsPressed() && isGrounded)
         {
-            //rb.AddRelativeForce(Vector3.up * jumpforce * Time.fixedDeltaTime);
+            if (!AudioSource.isPlaying)
+            {
+                AudioSource.PlayOneShot(jumpSFX);
+            }
+            jumpparticles.Play();
+            rb.AddRelativeForce(Vector3.up * (jumpforce * Time.fixedDeltaTime));
+
 
             Vector2 playerVelocity = rb.linearVelocity;
             playerVelocity.y = 0f;
@@ -47,8 +58,14 @@ public class Movement : MonoBehaviour
 
             rb.AddForce(Vector2.up * jumpforce, ForceMode.Impulse);
         }
-    }
-    
+        else
+        {
+            AudioSource.Stop();
+            jumpparticles.Stop();
+        }
+        //rb.AddRelativeForce(Vector3.up * jumpforce * Time.fixedDeltaTime);
+
+    }   
     private void HandleMove()
     {
         float moveInput = move.ReadValue<float>();
