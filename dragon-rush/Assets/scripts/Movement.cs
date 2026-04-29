@@ -35,6 +35,13 @@ public class Movement : MonoBehaviour
         jump.Enable();
         move.Enable();
     }
+
+    private void OnDisable()
+    {
+        jump.Disable();
+        move.Disable();
+    }
+
     private void Start()
     {
         jump.performed += ctx => HandleJump();
@@ -47,7 +54,6 @@ public class Movement : MonoBehaviour
     private void FixedUpdate()
     {
         HandleMove();
-
     }
     private void HandleJump()
     {
@@ -58,8 +64,6 @@ public class Movement : MonoBehaviour
                 AudioSource.PlayOneShot(jumpSFX);
             }
             jumpparticles.Play();
-
-
 
             Vector2 playerVelocity = rb.linearVelocity;
             playerVelocity.y = 0f;
