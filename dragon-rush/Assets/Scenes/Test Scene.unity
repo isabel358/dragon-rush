@@ -8331,31 +8331,43 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 590886210850039365, guid: e31bda9ace139ba40ada0bdace0dcbcc, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.9616665
+      value: 0.9206406
       objectReference: {fileID: 0}
     - target: {fileID: 590886210850039365, guid: e31bda9ace139ba40ada0bdace0dcbcc, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.16001722
+      value: 0.16310282
       objectReference: {fileID: 0}
     - target: {fileID: 590886210850039365, guid: e31bda9ace139ba40ada0bdace0dcbcc, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.2202121
+      value: -0.35456562
       objectReference: {fileID: 0}
     - target: {fileID: 590886210850039365, guid: e31bda9ace139ba40ada0bdace0dcbcc, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.033146154
+      value: 0.010082768
       objectReference: {fileID: 0}
     - target: {fileID: 590886210850039365, guid: e31bda9ace139ba40ada0bdace0dcbcc, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: 18.806
+      value: 17.907
       objectReference: {fileID: 0}
     - target: {fileID: 590886210850039365, guid: e31bda9ace139ba40ada0bdace0dcbcc, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: -25.863
+      value: -43.05
       objectReference: {fileID: 0}
     - target: {fileID: 590886210850039365, guid: e31bda9ace139ba40ada0bdace0dcbcc, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: -0.407
+      value: -5.857
+      objectReference: {fileID: 0}
+    - target: {fileID: 2748863548137669785, guid: e31bda9ace139ba40ada0bdace0dcbcc, type: 3}
+      propertyPath: field of view
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 2748863548137669785, guid: e31bda9ace139ba40ada0bdace0dcbcc, type: 3}
+      propertyPath: far clip plane
+      value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: 2748863548137669785, guid: e31bda9ace139ba40ada0bdace0dcbcc, type: 3}
+      propertyPath: near clip plane
+      value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 2947703143476349193, guid: e31bda9ace139ba40ada0bdace0dcbcc, type: 3}
       propertyPath: m_Name
@@ -8372,6 +8384,18 @@ PrefabInstance:
     - target: {fileID: 2973030246537392446, guid: e31bda9ace139ba40ada0bdace0dcbcc, type: 3}
       propertyPath: m_LocalPosition.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6968263093352467344, guid: e31bda9ace139ba40ada0bdace0dcbcc, type: 3}
+      propertyPath: Lens.FieldOfView
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 6968263093352467344, guid: e31bda9ace139ba40ada0bdace0dcbcc, type: 3}
+      propertyPath: Lens.FarClipPlane
+      value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: 6968263093352467344, guid: e31bda9ace139ba40ada0bdace0dcbcc, type: 3}
+      propertyPath: Lens.NearClipPlane
+      value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 6968263093352467344, guid: e31bda9ace139ba40ada0bdace0dcbcc, type: 3}
       propertyPath: Target.TrackingTarget
