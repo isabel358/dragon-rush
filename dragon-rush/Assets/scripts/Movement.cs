@@ -1,3 +1,5 @@
+using Unity.VisualScripting;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.InputSystem;
 public class Movement : MonoBehaviour
@@ -15,6 +17,9 @@ public class Movement : MonoBehaviour
 
     [SerializeField] AudioClip jumpSFX;
     [SerializeField] ParticleSystem jumpparticles;
+    private bool canDoubleJump;
+
+
 
     Rigidbody rb;
     Vector2 playerVelocity;
@@ -30,6 +35,17 @@ public class Movement : MonoBehaviour
         jump.Enable();
         move.Enable();
     }
+
+    private void OnDisable()
+    {
+        jump.Disable();
+        move.Disable();
+    }
+
+    private void Start()
+    {
+        jump.performed += ctx => HandleJump();
+    }
     private void Update()
     {
         CheckGrounded();
@@ -38,34 +54,32 @@ public class Movement : MonoBehaviour
     private void FixedUpdate()
     {
         HandleMove();
-        HandleJump();
     }
     private void HandleJump()
     {
-        if (jump.IsPressed() && isGrounded)
+        if (isGrounded || canDoubleJump)
         {
             if (!AudioSource.isPlaying)
             {
                 AudioSource.PlayOneShot(jumpSFX);
             }
             jumpparticles.Play();
-            rb.AddRelativeForce(Vector3.up * (jumpforce * Time.fixedDeltaTime));
-
 
             Vector2 playerVelocity = rb.linearVelocity;
             playerVelocity.y = 0f;
             rb.linearVelocity = playerVelocity;
 
             rb.AddForce(Vector2.up * jumpforce, ForceMode.Impulse);
+            canDoubleJump = !canDoubleJump;
         }
         else
         {
             AudioSource.Stop();
             jumpparticles.Stop();
         }
-        //rb.AddRelativeForce(Vector3.up * jumpforce * Time.fixedDeltaTime);
+    
 
-    }   
+    }
     private void HandleMove()
     {
         float moveInput = move.ReadValue<float>();
@@ -85,6 +99,6 @@ public class Movement : MonoBehaviour
     }
 
 }
-    
-    
+
+
 
