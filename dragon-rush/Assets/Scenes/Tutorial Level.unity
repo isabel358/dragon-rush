@@ -1587,6 +1587,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: player
       objectReference: {fileID: 0}
+    - target: {fileID: 4584090853321209431, guid: 56dbd3bfa8dfcd04b820ecd0a4923b48, type: 3}
+      propertyPath: moveSpeed
+      value: 5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2261,7 +2265,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7329048253334513030, guid: 322dcc80529a83d4cabcee49b353199c, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -18.37768
+      value: -17.22
       objectReference: {fileID: 0}
     - target: {fileID: 7329048253334513030, guid: 322dcc80529a83d4cabcee49b353199c, type: 3}
       propertyPath: m_LocalRotation.w
