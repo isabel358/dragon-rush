@@ -447,7 +447,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2748863548137669785, guid: e31bda9ace139ba40ada0bdace0dcbcc, type: 3}
       propertyPath: field of view
-      value: 64.3
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 2947703143476349193, guid: e31bda9ace139ba40ada0bdace0dcbcc, type: 3}
       propertyPath: m_Name
@@ -499,7 +499,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6968263093352467344, guid: e31bda9ace139ba40ada0bdace0dcbcc, type: 3}
       propertyPath: Lens.FieldOfView
-      value: 64.3
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 6968263093352467344, guid: e31bda9ace139ba40ada0bdace0dcbcc, type: 3}
       propertyPath: Target.TrackingTarget
