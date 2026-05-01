@@ -24,6 +24,7 @@ public class Movement : MonoBehaviour
     Rigidbody rb;
     Vector2 playerVelocity;
     AudioSource AudioSource;
+    internal static float movespeed;
 
     private void Awake()
     {
