@@ -17,6 +17,7 @@ public class Movement : MonoBehaviour
 
     [SerializeField] AudioClip jumpSFX;
     [SerializeField] ParticleSystem jumpparticles;
+    Animator anim;
     private bool canDoubleJump;
 
 
@@ -30,6 +31,7 @@ public class Movement : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         AudioSource = GetComponent<AudioSource>();
+        anim = GetComponentInChildren<Animator>();
     }
     private void OnEnable()
     {
@@ -66,7 +68,7 @@ public class Movement : MonoBehaviour
             }
             jumpparticles.Play();
 
-            Vector2 playerVelocity = rb.linearVelocity;
+            playerVelocity = rb.linearVelocity;
             playerVelocity.y = 0f;
             rb.linearVelocity = playerVelocity;
 
@@ -84,8 +86,10 @@ public class Movement : MonoBehaviour
     private void HandleMove()
     {
         float moveInput = move.ReadValue<float>();
-        playerVelocity = new Vector2(moveInput * moveSpeed, rb.linearVelocity.y);
+        playerVelocity = new Vector2(moveInput * moveSpeed, 0f);
         rb.linearVelocity = playerVelocity;
+
+        //anim.SetBool("IsWalking", playerVelocity != Vector2.zero);
 
         if (moveInput != 0)
         {
