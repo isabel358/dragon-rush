@@ -86,7 +86,7 @@ public class Movement : MonoBehaviour
     private void HandleMove()
     {
         float moveInput = move.ReadValue<float>();
-        playerVelocity = new Vector2(moveInput * moveSpeed, 0f);
+        playerVelocity = new Vector2(moveInput * moveSpeed, rb.linearVelocity.y);
         rb.linearVelocity = playerVelocity;
 
         //anim.SetBool("IsWalking", playerVelocity != Vector2.zero);
